@@ -1,4 +1,4 @@
-#YA LE ARREGLE EL PT TEMPLATE
+#Kubernetes twitter-feed
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
