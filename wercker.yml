@@ -51,7 +51,7 @@ deploy-to-cluster:
         command: create secret docker-registry wercker --docker-server=$DOCKER_REGISTRY --docker-email=nobody@oracle.com --docker-username=$DOCKER_USERNAME --docker-password='$OCI_AUTH_TOKEN'; echo create registry secret
 
     - script:
-        name: "Visualise Kubernetes Config"
+        name: "Visualise Kubernetes Config YAML"
         code: cat kubernetes.yml
 
     - kubectl:
