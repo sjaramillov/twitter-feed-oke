@@ -24,7 +24,7 @@ spec:
            containerPort: 8080
            protocol: TCP
        imagePullSecrets:
-           - name: wercker
+         - name: wercker
 ---
 apiVersion: v1
 kind: Service
