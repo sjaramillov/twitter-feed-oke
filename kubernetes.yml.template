@@ -9,30 +9,30 @@ spec:
   selector:
      matchLabels:
         app: twitter-feed
-     template:
-        metadata:
-          labels:
-            app: twitter-feed
-            commit: ${WERCKER_GIT_COMMIT}
-          spec:
-             containers:
-             - name: twitter-feed
-             image: ${DOCKER_REGISTRY}/${DOCKER_REPO}:${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT}
-             imagePullPolicy: Always
-             ports:
-             - name: twitter-feed
-               containerPort: 8080
-               protocol: TCP
-             imagePullSecrets:
-                - name: wercker
+  template:
+     metadata:
+       labels:
+         app: twitter-feed
+         commit: ${WERCKER_GIT_COMMIT}
+     spec:
+       containers:
+       - name: twitter-feed
+         image: ${DOCKER_REGISTRY}/${DOCKER_REPO}:${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT}
+         imagePullPolicy: Always
+         ports:
+         - name: twitter-feed
+           containerPort: 8080
+           protocol: TCP
+       imagePullSecrets:
+           - name: wercker
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: twitter-feed
   labels:
-  app: twitter-feed
-  commit: ${WERCKER_GIT_COMMIT}
+    app: twitter-feed
+    commit: ${WERCKER_GIT_COMMIT}
 spec:
   ports:
   - port: 30000
